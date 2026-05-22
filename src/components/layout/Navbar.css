@@ -9,11 +9,12 @@
   right: 0;
   z-index: 1000;
   height: 90px;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.7); /* Darker base to prevent flat grey look */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Subtle glass edge */
   transition: all 0.3s ease;
   color: white;
 }
