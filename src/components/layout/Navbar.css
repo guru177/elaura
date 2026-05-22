@@ -3,24 +3,22 @@
    ============================================ */
 
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   height: 90px;
-  background: rgba(10, 10, 10, 0.45); /* Beautiful, highly transparent dark glass base */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.95);
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Subtle glass edge */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
   color: white;
 }
 
 .navbar--scrolled {
-  position: fixed;
+  /* No changes needed as base is already fixed and dark */
   background: rgba(0, 0, 0, 0.95);
 }
 
