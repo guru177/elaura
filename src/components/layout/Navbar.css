@@ -9,7 +9,7 @@
   right: 0;
   z-index: 1000;
   height: 90px;
-  background: rgba(10, 10, 10, 0.7); /* Darker base to prevent flat grey look */
+  background: rgba(0, 0, 0, 0.85); /* Deep dark base for premium dark glass */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom-left-radius: 24px;

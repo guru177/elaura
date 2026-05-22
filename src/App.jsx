@@ -42,10 +42,10 @@ const AnimatedRoutes = () => {
 
 const App = () => (
   <Router>
-    <Navbar />
     <main>
       <AnimatedRoutes />
     </main>
+    <Navbar />
     <FloatingContact />
     <Footer />
   </Router>
