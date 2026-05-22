@@ -150,7 +150,7 @@ const TestimonialsSection = () => {
           className="testimonials__header"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={fadeUp}
         >
           <span className="testimonials__badge">Testimonials</span>

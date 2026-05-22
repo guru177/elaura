@@ -203,6 +203,10 @@
 }
 
 @media (max-width: 768px) {
+  .testimonials-section {
+    padding: 4rem 0;
+  }
+  
   .testimonials__gallery-wrapper {
     height: 450px;
     padding-top: 2rem;
