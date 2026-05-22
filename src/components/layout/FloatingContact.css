@@ -1,0 +1,93 @@
+.floating-contact {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.floating-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  background-color: #050505; /* Sleek dark to match theme */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-btn:hover {
+  transform: scale(1.1) translateY(-5px);
+  background-color: #111;
+  cursor: pointer;
+}
+
+/* Scroll to top button specific styles */
+.floating-top {
+  background-color: #fff;
+  color: #111;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+.floating-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating-top:hover {
+  background-color: #e5e5e5;
+  color: #111;
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Hover specific colors for recognition */
+.floating-phone:hover {
+  color: #3b82f6; /* Theme Blue */
+  border-color: #3b82f6;
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+}
+
+.floating-wa:hover {
+  color: #25D366; /* WhatsApp Green */
+  border-color: #25D366;
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+}
+
+/* Pulse animation for the primary (WhatsApp) button to draw subtle attention */
+@keyframes softPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.floating-wa {
+  animation: softPulse 3s infinite;
+}
+.floating-wa:hover {
+  animation: none; /* stop pulsing on hover */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .floating-contact {
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+  .floating-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}

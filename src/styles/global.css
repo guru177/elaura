@@ -1,0 +1,253 @@
+/* ============================================
+   GLOBAL STYLES — Elaura EDUCATIONAL INSTITUTE
+   ============================================ */
+
+@import './variables.css';
+@import './animations.css';
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+  color: var(--text-dark);
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ── Section Spacing ── */
+.section {
+  padding: var(--space-24) 0;
+}
+
+.section--sm {
+  padding: var(--space-16) 0;
+}
+
+.section--lg {
+  padding: var(--space-32) 0;
+}
+
+/* ── Typography Utilities ── */
+.text-primary {
+  color: var(--primary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-white {
+  color: var(--text-white);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+/* ── Flexbox & Grid Utilities ── */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge--primary {
+  background: rgba(26, 86, 219, 0.1);
+  color: var(--primary);
+}
+
+.badge--accent {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--accent-dark);
+}
+
+/* ── Divider ── */
+.divider {
+  width: 60px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  margin: var(--space-4) auto;
+}
+
+.divider--left {
+  margin-left: 0;
+}
+
+/* ── Page wrapper ── */
+.page-wrapper {
+  padding-top: var(--navbar-h);
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111;
+  border-radius: var(--radius-full);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(26, 86, 219, 0.2);
+  color: var(--primary-dark);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--space-5);
+  }
+
+  .section {
+    padding: var(--space-20) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .section {
+    padding: var(--space-16) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 15px;
+  }
+}

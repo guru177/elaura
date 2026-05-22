@@ -1,0 +1,230 @@
+/* ============================================
+   COURSES SECTION
+   ============================================ */
+
+.courses {
+  background-color: #FFFFFF; /* White background */
+  padding: 6rem 0;
+  width: 100%;
+  border-bottom: 6px double rgba(0, 0, 0, 0.1); /* Elegant double border divider */
+}
+
+.courses__container {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+/* ── Header ── */
+.courses__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.courses__title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.courses__subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: #666;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* ── Slider ── */
+.courses__slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 20px; /* Prevents card top from clipping on hover */
+  padding-bottom: 2rem;
+  margin-top: -20px; /* Offsets the visual gap created by padding */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.courses__slider {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: slideCourses 40s linear infinite;
+}
+
+.courses__slider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes slideCourses {
+  0% { transform: translateX(0); }
+  /* Slide by half of the total width since we duplicated it once */
+  100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+/* ── Card (Black with White Text) ── */
+.course-card {
+  width: 450px; /* Fixed width for slider cards */
+  flex-shrink: 0;
+  background-color: #111111; /* Black cards */
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  color: #FFFFFF; /* White text inside */
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Image Header */
+.course-card__image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  padding: 1.5rem; /* Slightly larger inner padding for big cards */
+  padding-bottom: 0;
+}
+
+.course-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Prevents cropping */
+  border-radius: 24px;
+}
+
+/* Card Content */
+.course-card__content {
+  padding: 1.5rem;
+}
+
+.course-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.course-card__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.course-card__icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white box for icon */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.course-card__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.course-card__actions {
+  display: flex;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.course-card__action-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.course-card__action-icon:hover {
+  color: #fff;
+}
+
+.course-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  min-height: 4.8em; /* Ensures cards are same height even if text varies slightly */
+}
+
+/* Footer Stats */
+.course-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #a0a0a0;
+}
+
+/* ── View All Button ── */
+.courses__view-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.courses__view-btn {
+  background-color: #111;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;
+}
+
+.courses__view-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  background-color: #333;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .courses__container {
+    padding: 0 2rem;
+  }
+
+  .courses__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .courses {
+    padding: 4rem 0;
+  }
+
+  .courses__title {
+    font-size: 2.5rem;
+  }
+
+  .courses__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto 3rem auto;
+  }
+}
