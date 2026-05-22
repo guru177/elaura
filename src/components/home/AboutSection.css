@@ -116,11 +116,19 @@
   border-top-right-radius: 0;
 }
 
+.about__img--square {
+  top: 0;
+  right: 0;
+  width: 31%; /* Fits perfectly next to the 65% top image with a small gap */
+  height: 240px;
+  border-radius: 20px;
+}
+
 /* Hire Us Stamp */
 .about__stamp {
   position: absolute;
-  top: 10px;
-  right: 0;
+  top: -50px;
+  right: -50px; /* Overlap the top right corner aggressively */
   width: 140px;
   height: 140px;
   background-color: #111; /* Black theme */
@@ -313,7 +321,7 @@
   }
 
   .about__images {
-    height: 400px;
+    height: 420px; /* 200 + 200 + 20px gap */
   }
 
   .about__img--top {
@@ -324,10 +332,15 @@
     height: 200px;
   }
 
+  .about__img--square {
+    height: 200px;
+  }
+
   .about__stamp {
     width: 100px;
     height: 100px;
-    right: 10px;
+    right: -35px;
+    top: -35px;
   }
 
   .about__stamp-text {
@@ -369,19 +382,20 @@
   }
 
   .about__images {
-    height: 320px;
+    height: 335px; /* 160 + 160 + 15px gap */
   }
 
   .about__img--top,
-  .about__img--bottom {
+  .about__img--bottom,
+  .about__img--square {
     height: 160px;
   }
 
   .about__stamp {
     width: 80px;
     height: 80px;
-    right: 5px;
-    top: 5px;
+    right: -25px;
+    top: -25px;
   }
 
   .about__stamp-text {

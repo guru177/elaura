@@ -142,6 +142,9 @@
 }
 
 @media (max-width: 924px) {
+  .navbar__inner {
+    padding: 0 1.5rem; /* Move logo and hamburger to edges */
+  }
 
   .navbar__left,
   .navbar__socials {

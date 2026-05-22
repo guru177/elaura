@@ -207,9 +207,8 @@
   .courses__container {
     padding: 0 2rem;
   }
-
-  .courses__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .course-card {
+    width: 380px;
   }
 }
 
@@ -218,13 +217,24 @@
     padding: 4rem 0;
   }
 
+  .courses__container {
+    padding: 0 1rem;
+  }
+
   .courses__title {
     font-size: 2.5rem;
   }
 
-  .courses__grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-    margin: 0 auto 3rem auto;
+  .course-card {
+    width: 310px; /* Fit perfectly on modern mobile screens */
+  }
+
+  .courses__slider {
+    gap: 1rem;
+  }
+
+  @keyframes slideCourses {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.5rem)); }
   }
 }

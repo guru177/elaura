@@ -206,13 +206,38 @@
   .testimonials__gallery-wrapper {
     height: 450px;
     padding-top: 2rem;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
   }
   
+  .testimonials__gallery-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+
+  /* Prevent gallery images from squishing, let user swipe to see all */
+  .testimonials__gallery {
+    width: max-content; 
+    min-width: 1200px; /* Ensure they stay fully sized */
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
   .testimonials__title {
     font-size: 2.5rem;
   }
 
   .testimonial-card {
     width: 300px;
+  }
+  
+  .testimonials__slider {
+    gap: 2rem;
+  }
+
+  @keyframes slideTestimonials {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); } 
   }
 }

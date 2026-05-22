@@ -5,6 +5,7 @@ import './AboutSection.css';
 
 import aboutImg1 from '../../assets/about_1_color.jpg';
 import aboutImg2 from '../../assets/about_2_color.jpg';
+import aboutImg3 from '../../assets/about_3_color.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -79,6 +80,7 @@ const AboutSection = () => {
             <div className="about__images">
               <img src={aboutImg1} alt="Students collaborating at Elaura" className="about__img about__img--top" />
               <img src={aboutImg2} alt="Elaura instructors mentoring" className="about__img about__img--bottom" />
+              <img src={aboutImg3} alt="Elaura student studying" className="about__img about__img--square" />
 
               {/* Hire Us Stamp */}
               <div className="about__stamp">
