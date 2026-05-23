@@ -226,15 +226,25 @@
   }
 
   .course-card {
-    width: 310px; /* Fit perfectly on modern mobile screens */
+    width: 100%; 
+    max-width: 350px; 
+    margin: 0 auto;
+  }
+
+  .courses__slider-wrapper {
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
   .courses__slider {
-    gap: 1rem;
+    flex-direction: column;
+    animation: none;
+    width: 100%;
+    gap: 2rem;
   }
 
-  @keyframes slideCourses {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 0.5rem)); }
+  /* Only show the first 3 cards on mobile */
+  .course-card:nth-child(n+4) {
+    display: none;
   }
 }
