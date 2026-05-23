@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './TestimonialsSection.css';
 
 import img1 from '../../assets/testi_1.png';
@@ -96,6 +96,16 @@ const popIn = {
 };
 
 const TestimonialsSection = () => {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIdx((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIdx((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
     <section className="testimonials-section">
       
@@ -160,8 +170,8 @@ const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Testimonials Slider */}
-        <div className="testimonials__slider-wrapper">
+        {/* Testimonials Slider - Desktop */}
+        <div className="testimonials__slider-wrapper testimonials__slider-wrapper--desktop">
           <div className="testimonials__slider">
             {[...testimonials, ...testimonials].map((testi, idx) => (
               <div key={`${testi.id}-${idx}`} className="testimonial-card">
@@ -181,6 +191,35 @@ const TestimonialsSection = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Testimonials Slider - Mobile */}
+        <div className="testimonials__slider-wrapper--mobile">
+          <div className="testimonial-card testimonial-card--mobile">
+            <div className="testimonial-card__stars">
+              {[...Array(testimonials[currentIdx].stars)].map((_, i) => (
+                <FaStar key={i} className="star-icon" />
+              ))}
+            </div>
+            <p className="testimonial-card__text">"{testimonials[currentIdx].text}"</p>
+            
+            <div className="testimonial-card__user">
+              <img src={testimonials[currentIdx].image} alt={testimonials[currentIdx].name} className="testimonial-card__avatar" />
+              <div className="testimonial-card__user-info">
+                <h4 className="testimonial-card__name">{testimonials[currentIdx].name}</h4>
+                <span className="testimonial-card__role">{testimonials[currentIdx].role}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="testimonials__controls">
+            <button className="testimonials__btn" onClick={handlePrev} aria-label="Previous">
+              <FaChevronLeft />
+            </button>
+            <button className="testimonials__btn" onClick={handleNext} aria-label="Next">
+              <FaChevronRight />
+            </button>
           </div>
         </div>
 
