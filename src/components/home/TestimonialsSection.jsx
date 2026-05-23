@@ -162,15 +162,9 @@ const TestimonialsSection = () => {
 
         {/* Testimonials Slider */}
         <div className="testimonials__slider-wrapper">
-          <motion.div 
-            className="testimonials__slider"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={staggerContainer}
-          >
+          <div className="testimonials__slider">
             {[...testimonials, ...testimonials].map((testi, idx) => (
-              <motion.div key={`${testi.id}-${idx}`} className="testimonial-card" variants={fadeUp}>
+              <div key={`${testi.id}-${idx}`} className="testimonial-card">
                 <div className="testimonial-card__stars">
                   {[...Array(testi.stars)].map((_, i) => (
                     <FaStar key={i} className="star-icon" />
@@ -185,9 +179,9 @@ const TestimonialsSection = () => {
                     <span className="testimonial-card__role">{testi.role}</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
       </div>
