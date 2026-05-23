@@ -12,6 +12,8 @@
   align-items: center;
   color: white;
   overflow: hidden;
+  clip-path: inset(0); /* Ironclad overflow prevention for iOS */
+  contain: paint; /* Strict boundary for rendering */
   background-color: #000;
 }
 
