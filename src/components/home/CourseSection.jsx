@@ -1,81 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaCode, FaServer, FaAndroid, FaChartLine, FaShieldAlt, FaPaintBrush } from 'react-icons/fa';
-import { FiShare2, FiBookmark } from 'react-icons/fi';
+import { FiShare2, FiBookmark, FiBookOpen } from 'react-icons/fi';
 import './CourseSection.css';
-
-import imgCourse1 from '../../assets/course_1.jpg';
-import imgCourse2 from '../../assets/course_2.jpg';
-import imgCourse3 from '../../assets/course_3.jpg';
-import imgCourse4 from '../../assets/course_4.jpg';
-import imgCourse5 from '../../assets/course_5.jpg';
-import imgCourse6 from '../../assets/course_6.jpg';
-
-const baseCourses = [
-  {
-    id: 1,
-    title: 'Certification Courses',
-    image: imgCourse1,
-    icon: <FaCode />,
-    description: 'Enroll now and take the first step towards a brighter tomorrow with our short-term certification.',
-    coursesCount: '3 Months',
-    lessonsCount: 'English',
-    duration: 'Govt. Approved'
-  },
-  {
-    id: 2,
-    title: 'Diploma Courses',
-    image: imgCourse2,
-    icon: <FaServer />,
-    description: 'Comprehensive 8-month diploma programs designed to build strong foundational industry skills.',
-    coursesCount: '8 Months',
-    lessonsCount: 'English',
-    duration: 'Govt. Approved'
-  },
-  {
-    id: 3,
-    title: 'Advanced Diploma',
-    image: imgCourse3,
-    icon: <FaAndroid />,
-    description: 'Advanced curriculum for professionals aiming to specialize and excel in their chosen fields.',
-    coursesCount: '10 Months',
-    lessonsCount: 'English',
-    duration: 'Govt. Approved'
-  },
-  {
-    id: 4,
-    title: 'PG Diploma',
-    image: imgCourse4,
-    icon: <FaChartLine />,
-    description: 'Post-graduate level diploma tracks focusing on high-level expertise and practical application.',
-    coursesCount: '12 Months',
-    lessonsCount: 'English',
-    duration: 'Govt. Approved'
-  },
-  {
-    id: 5,
-    title: 'Professional Track',
-    image: imgCourse5,
-    icon: <FaShieldAlt />,
-    description: 'Intense, industry-focused training tracks to prepare you for modern corporate environments.',
-    coursesCount: '6 Months',
-    lessonsCount: 'English',
-    duration: 'Govt. Approved'
-  },
-  {
-    id: 6,
-    title: 'Expert Degree Prep',
-    image: imgCourse6,
-    icon: <FaPaintBrush />,
-    description: 'Rigorous preparation courses designed for ambitious students seeking elite higher education.',
-    coursesCount: '12 Months',
-    lessonsCount: 'English',
-    duration: 'Govt. Approved'
-  }
-];
-
-// Duplicate for seamless infinite scrolling
-const courses = [...baseCourses, ...baseCourses];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -83,6 +11,23 @@ const fadeUp = {
 };
 
 const CourseSection = () => {
+  const [courses, setCourses] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const url = window.location.hostname === 'localhost' ? 'http://localhost:8000/get_courses.php' : '/backend/get_courses.php';
+        const res = await fetch(url);
+        const data = await res.json();
+        const validData = Array.isArray(data) ? data : [];
+        const top6 = validData.reverse().slice(0, 6); // Take the 6 most recent courses
+        setCourses([...top6, ...top6]); // duplicate for infinite scrolling
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchCourses();
+  }, []);
   return (
     <section className="courses">
       <div className="courses__container">
@@ -111,7 +56,7 @@ const CourseSection = () => {
         >
           <div className="courses__slider">
             {courses.map((course, index) => (
-              <div key={`${course.id}-${index}`} className="course-card">
+              <Link to={`/courses/${course.id}`} key={`${course.id}-${index}`} className="course-card" style={{ textDecoration: 'none' }}>
                 
                 {/* Image Header */}
                 <div className="course-card__image-container">
@@ -123,7 +68,7 @@ const CourseSection = () => {
                   <div className="course-card__top">
                     <div className="course-card__title-wrap">
                       <div className="course-card__icon-box">
-                        {course.icon}
+                        <FiBookOpen />
                       </div>
                       <h3 className="course-card__title">{course.title}</h3>
                     </div>
@@ -145,7 +90,7 @@ const CourseSection = () => {
                   </div>
                 </div>
 
-              </div>
+              </Link>
             ))}
           </div>
         </motion.div>

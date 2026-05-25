@@ -23,7 +23,7 @@ const Footer = () => {
         >
           <h2>Ready to accelerate your career<span className="text-blue">?</span></h2>
           <p className="footer__cta-sub">let's build your future</p>
-          <Link to="#" className="footer__btn">
+          <Link to="/contact" className="footer__btn">
             Apply Now <span className="arrow">→</span>
           </Link>
         </div>
@@ -49,10 +49,10 @@ const Footer = () => {
           <div className="footer__right">
             <div className="footer__links-main">
               <Link to="/">Home</Link>
-              <Link to="#">About</Link>
-              <Link to="#">Courses</Link>
-              <Link to="#">Gallery</Link>
-              <Link to="#">Contact</Link>
+              <Link to="/about">About</Link>
+              <Link to="/courses">Courses</Link>
+              <Link to="/gallery">Gallery</Link>
+              <Link to="/contact">Contact</Link>
             </div>
           </div>
         </div>

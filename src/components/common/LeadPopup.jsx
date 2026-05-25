@@ -10,37 +10,33 @@ const LeadPopup = () => {
   const [submitError, setSubmitError] = useState(null);
 
   useEffect(() => {
-    // Check if the user has already submitted the form
-    if (localStorage.getItem('elura_lead_submitted') === 'true') {
-      return;
-    }
-
-    let initialTimer;
-
-    const showPopup = () => {
-      // Only show if not already submitted
-      if (localStorage.getItem('elura_lead_submitted') !== 'true') {
-        setIsOpen(true);
-      }
-    };
-
     // Initial 5 seconds delay before showing the popup
-    initialTimer = setTimeout(showPopup, 5000);
+    const initialTimer = setTimeout(() => {
+      setIsOpen(true);
+      setIsSubmitted(false);
+    }, 5000);
 
-    return () => clearTimeout(initialTimer);
+    // After that, show every 15 minutes (900,000 ms)
+    const intervalTimer = setInterval(() => {
+      setIsOpen(true);
+      setIsSubmitted(false); // Reset form state so it shows the form again
+    }, 900000);
+
+    const handleOpenPopup = () => {
+      setIsOpen(true);
+      setIsSubmitted(false);
+    };
+    window.addEventListener('openLeadPopup', handleOpenPopup);
+
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(intervalTimer);
+      window.removeEventListener('openLeadPopup', handleOpenPopup);
+    };
   }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    
-    // If they close without submitting, show it again after 5 minutes (300,000 ms)
-    if (!isSubmitted) {
-      setTimeout(() => {
-        if (localStorage.getItem('elura_lead_submitted') !== 'true') {
-          setIsOpen(true);
-        }
-      }, 300000);
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -49,33 +45,36 @@ const LeadPopup = () => {
     setSubmitError(null);
 
     const form = e.target;
-    const formData = new FormData(form);
     const payload = {};
+    const formData = new FormData(form);
     formData.forEach((value, key) => {
       payload[key] = value;
     });
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/info@simplemen.co.in", {
+      // Use localhost:8000 for local development, relative path for production
+      const url = window.location.hostname === 'localhost' ? 'http://localhost:8000/send_lead.php' : '/backend/send_lead.php';
+      
+      const response = await fetch(url, {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify(payload)
       });
 
-      if (response.ok) {
-        // Mark as submitted
+      const result = await response.json();
+
+      if (response.ok && result.status === "success") {
         setIsSubmitted(true);
-        localStorage.setItem('elura_lead_submitted', 'true');
         
         // Auto-close the popup after 4 seconds of showing the success animation
         setTimeout(() => {
           setIsOpen(false);
         }, 4000);
       } else {
-        throw new Error("Failed to submit details. Please try again.");
+        throw new Error(result.message || "Failed to submit details. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting lead form:", error);
@@ -113,9 +112,6 @@ const LeadPopup = () => {
                 <p className="lead-popup__subtitle">Please fill the form and our team will guide you.</p>
                 
                 <form onSubmit={handleSubmit} className="lead-popup__form">
-                  {/* Hidden fields for FormSubmit configuration */}
-                  <input type="hidden" name="_subject" value="New Elaura Academy Lead Submission" />
-                  <input type="hidden" name="_honeypot" style={{ display: 'none' }} />
                   
                   {submitError && (
                     <div className="lead-popup__error" style={{ color: '#ef4444', background: '#fee2e2', padding: '0.75rem', borderRadius: '12px', fontSize: '0.9rem', border: '1px solid #fca5a5', marginBottom: '0.5rem', textAlign: 'center' }}>

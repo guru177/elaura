@@ -1,0 +1,377 @@
+/* About.css */
+.about-page {
+  background-color: #ffffff;
+}
+
+.about-section {
+  padding: 100px 0;
+  background-color: #ffffff;
+}
+
+.bg-dark { background-color: #0f172a !important; }
+.text-white { color: #ffffff !important; }
+
+.with-double-border {
+  border-bottom: 4px double #e2e8f0;
+}
+
+.about-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.section-subtitle.light {
+  color: #94a3b8;
+}
+
+.section-subtitle.light {
+  color: #94a3b8;
+}
+
+.about-section h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 25px;
+}
+
+.text-white { color: #ffffff !important; }
+.text-center { text-align: center; }
+
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.header-desc {
+  font-size: 18px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Our Story */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-content p {
+  font-size: 17px;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.story-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.story-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  object-fit: cover;
+  height: 500px;
+}
+
+/* Mission & Vision */
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.mission-card {
+  background: #ffffff;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.mission-icon {
+  width: 70px;
+  height: 70px;
+  background: #f1f5f9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.mission-icon svg {
+  font-size: 32px;
+  color: #0f172a;
+}
+
+.mission-card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+.mission-card p {
+  font-size: 17px;
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* Why Choose Us */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: left;
+  transition: all 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.why-icon {
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.why-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.why-card p {
+  color: #94a3b8;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Learning Methodology */
+.methodology-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  position: relative;
+}
+
+.methodology-step {
+  background: #f8fafc;
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-number {
+  font-size: 80px;
+  font-weight: 900;
+  color: #f1f5f9;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  line-height: 1;
+  z-index: 0;
+}
+
+.methodology-step h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.methodology-step p {
+  color: #475569;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Trainers */
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.trainer-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.trainer-image {
+  background: #cbd5e1;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.trainer-info {
+  padding: 30px;
+}
+
+.trainer-info h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 5px;
+}
+
+.trainer-role {
+  display: block;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.trainer-info p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.faq-item {
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: all 0.2s;
+  height: fit-content;
+}
+
+.faq-item.active {
+  background: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  cursor: pointer;
+}
+
+.faq-header h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.faq-icon {
+  font-size: 24px;
+  color: #64748b;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+  color: #0f172a;
+}
+
+.faq-body {
+  padding: 0 30px 25px;
+}
+
+.faq-body p {
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .story-grid, .mission-grid {
+    gap: 40px;
+  }
+  .why-grid, .methodology-timeline, .trainers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .about-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 0 1.5rem;
+  }
+  .story-grid, .mission-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-grid, .methodology-timeline, .trainers-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-section h2 {
+    font-size: 32px;
+  }
+  .story-image img {
+    height: 300px;
+  }
+}

@@ -31,56 +31,7 @@ const staggerContainer = {
   }
 };
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'Sarah Jenkins',
-    role: 'Senior Software Engineer',
-    image: 'https://i.pravatar.cc/150?img=47',
-    text: 'Elura Academy transformed my career trajectory. The hybrid learning experience and expert mentorship allowed me to master advanced architecture concepts seamlessly. Highly recommend to any ambitious professional!',
-    stars: 5
-  },
-  {
-    id: 2,
-    name: 'David Chen',
-    role: 'Product Manager',
-    image: 'https://i.pravatar.cc/150?img=11',
-    text: 'Our company needed a pipeline of highly skilled developers, and Elura Academy delivered. The candidates we hired from their placement drives were exceptionally well-prepared and immediately impactful.',
-    stars: 5
-  },
-  {
-    id: 3,
-    name: 'Elena Rodriguez',
-    role: 'UI/UX Lead',
-    image: 'https://i.pravatar.cc/150?img=32',
-    text: 'I love the variety of intensive tracks available! The curriculum is incredibly modern and aligned with exactly what top tech companies are looking for. The professional exposure is unmatched.',
-    stars: 5
-  },
-  {
-    id: 4,
-    name: 'Michael Carter',
-    role: 'Data Scientist',
-    image: 'https://i.pravatar.cc/150?img=60',
-    text: 'The PG Diploma program is rigorous and exceptionally structured. The hands-on projects helped me build a portfolio that directly landed me my dream role. Best investment in my future.',
-    stars: 5
-  },
-  {
-    id: 5,
-    name: 'Aisha Patel',
-    role: 'Frontend Developer',
-    image: 'https://i.pravatar.cc/150?img=41',
-    text: 'The environment here is unlike any other. The networking opportunities with industry leaders are genuinely top-tier. I made connections that were crucial for my career advancement.',
-    stars: 5
-  },
-  {
-    id: 6,
-    name: 'James Wilson',
-    role: 'Tech Consultant',
-    image: 'https://i.pravatar.cc/150?img=68',
-    text: 'As an employer, Elura graduates consistently stand out during our interviews. They possess a perfect blend of theoretical knowledge and practical, modern coding skills.',
-    stars: 5
-  }
-];
+
 
 const galleryContainer = {
   hidden: { opacity: 0 },
@@ -96,7 +47,24 @@ const popIn = {
 };
 
 const TestimonialsSection = () => {
+  const [testimonials, setTestimonials] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
+
+  React.useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const url = window.location.hostname === 'localhost' ? 'http://localhost:8000/manage_testimonials.php' : '/backend/manage_testimonials.php';
+        const res = await fetch(url);
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          setTestimonials(data);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchTestimonials();
+  }, []);
 
   const handleNext = () => {
     setCurrentIdx((prev) => (prev + 1) % testimonials.length);
@@ -196,22 +164,24 @@ const TestimonialsSection = () => {
 
         {/* Testimonials Slider - Mobile */}
         <div className="testimonials__slider-wrapper--mobile">
-          <div className="testimonial-card testimonial-card--mobile">
-            <div className="testimonial-card__stars">
-              {[...Array(testimonials[currentIdx].stars)].map((_, i) => (
-                <FaStar key={i} className="star-icon" />
-              ))}
-            </div>
-            <p className="testimonial-card__text">"{testimonials[currentIdx].text}"</p>
-            
-            <div className="testimonial-card__user">
-              <img src={testimonials[currentIdx].image} alt={testimonials[currentIdx].name} className="testimonial-card__avatar" />
-              <div className="testimonial-card__user-info">
-                <h4 className="testimonial-card__name">{testimonials[currentIdx].name}</h4>
-                <span className="testimonial-card__role">{testimonials[currentIdx].role}</span>
+          {testimonials.length > 0 && (
+            <div className="testimonial-card testimonial-card--mobile">
+              <div className="testimonial-card__stars">
+                {[...Array(testimonials[currentIdx]?.stars || 5)].map((_, i) => (
+                  <FaStar key={i} className="star-icon" />
+                ))}
+              </div>
+              <p className="testimonial-card__text">"{testimonials[currentIdx]?.text}"</p>
+              
+              <div className="testimonial-card__user">
+                <img src={testimonials[currentIdx]?.image} alt={testimonials[currentIdx]?.name} className="testimonial-card__avatar" />
+                <div className="testimonial-card__user-info">
+                  <h4 className="testimonial-card__name">{testimonials[currentIdx]?.name}</h4>
+                  <span className="testimonial-card__role">{testimonials[currentIdx]?.role}</span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
           
           <div className="testimonials__controls">
             <button className="testimonials__btn" onClick={handlePrev} aria-label="Previous">

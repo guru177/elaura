@@ -1,0 +1,145 @@
+
+/* Admin Course Grid Layout */
+.admin-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.admin-course-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.admin-course-img-wrapper {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  background: #f1f5f9;
+}
+
+.admin-course-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-course-category {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.admin-course-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.admin-course-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.admin-course-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.admin-course-actions {
+  display: flex;
+  gap: 10px;
+  padding: 15px 20px;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-edit-full {
+  flex: 1;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-edit-full:hover {
+  background: #2563eb;
+}
+
+.btn-delete-full {
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete-full:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* Light Theme Override for Admin Course Cards */
+.course-card-light {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.course-card-light .course-card__title {
+  color: #1e293b !important;
+}
+
+.course-card-light .course-card__desc {
+  color: #475569 !important;
+}
+
+.course-card-light .course-card__icon-box {
+  background-color: #f1f5f9 !important;
+  color: #3b82f6 !important;
+}
+
+.course-card-light .course-card__footer {
+  border-top: 1px solid #e2e8f0 !important;
+  color: #64748b !important;
+}
+
+.course-card-light .course-card__action-icon {
+  color: #64748b !important;
+}
+
+.course-card-light .course-card__action-icon:hover {
+  color: #3b82f6 !important;
+}

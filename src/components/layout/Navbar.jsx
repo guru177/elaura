@@ -7,10 +7,10 @@ import './Navbar.css';
 
 const navLinks = [
   { path: '/', label: 'HOME' },
-  { path: '#', label: 'ABOUT' },
-  { path: '#', label: 'COURSES' },
-  { path: '#', label: 'GALLERY' },
-  { path: '#', label: 'CONTACT' },
+  { path: '/about', label: 'ABOUT' },
+  { path: '/courses', label: 'COURSES' },
+  { path: '/gallery', label: 'GALLERY' },
+  { path: '/contact', label: 'CONTACT' },
 ];
 
 const Navbar = () => {
