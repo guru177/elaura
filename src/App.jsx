@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingContact from './components/layout/FloatingContact';
+import LeadPopup from './components/common/LeadPopup';
 import Home    from './pages/Home';
 import About   from './pages/About';
 import Courses from './pages/Courses';
@@ -47,6 +48,7 @@ const App = () => (
     </main>
     <Navbar />
     <FloatingContact />
+    <LeadPopup />
     <Footer />
   </Router>
 );
